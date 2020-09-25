@@ -1,29 +1,42 @@
 import React from 'react'
 
-const SearchBar = () => {  
+class SearchBar extends React.Component { 
+    state= { from: '', to: '', depart: '', return: '', travellers: '' }
+
+    onFormSubmit = event => {
+        event.preventDefault()
+
+        this.props.onSubmit(this.state.from)
+        this.props.onSubmit(this.state.to)
+        this.props.onSubmit(this.state.depart)
+        this.props.onSubmit(this.state.return)
+        this.props.onSubmit(this.state.travellers)
+    
+    }
+    render(){
 return (
     <div>
-    <div class="ui top attached tabular menu">
-  <div class="active item">Flights</div>
+    <div className="ui top attached tabular menu">
+  <div className="active item">Flights</div>
 </div>
-<div class="ui bottom attached active tab clearing segment">
-<form className="ui form">
+<div className="ui bottom attached active tab clearing segment">
+<form onSubmit={this.onFormSubmit} className="ui form">
                 <div className="field">
             <label htmlFor="from">From</label>
-            <input type="text" className="from"/>
+            <input type="text" value={this.state.from} onChange={(e) => this.setState({ from: e.target.value })} className="from"/>
             <label htmlFor="to">To</label>
-            <input type="text" className="to"/>
+            <input type="text" value={this.state.to} onChange={(e) => this.setState({ to: e.target.value })} className="to"/>
             <label htmlFor="depart">Depart</label>
-            <input type="date" className="depart"/>
+            <input type="date" value={this.state.depart} onChange={(e) => this.setState({ depart: e.target.value })} className="depart"/>
             <label htmlFor="return">Return</label>
-            <input type="date" className="return"/>
+            <input type="date" value={this.state.return} onChange={(e) => this.setState({ return: e.target.value })} className="return"/>
             <label htmlFor="travellers">Travellers</label>
-            <input type="number" className="travellers"/>
+            <input type="number" value={this.state.travellers} onChange={(e) => this.setState({ travellers: e.target.value })} className="travellers"/>
                 </div>
                 <button className="large right floated ui blue button">Search Flights</button>
             </form>
 </div>
-</div>)
+</div>)}
 }
 
 export default SearchBar
