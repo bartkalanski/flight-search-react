@@ -1,15 +1,16 @@
 import React from 'react'
 import Logo from './Logo'
 import SearchBar from './SearchBar'
+import FlightResults from './FlightResults'
+import date from './date'
 
 
 class App extends React.Component {
     state = { results: ''}
 
-    onSearchSubmit = async (from, to) => {
-        console.log('this is from', from)
-        console.log('this is to', to)
-       const response = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/UK/GBP/en-GB/${from}-sky/${to}-sky/2020-10-10`, {
+    onSearchSubmit = async (from, to, depart, back, travellers) => {
+    
+       const response = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/UK/GBP/en-GB/${from}-sky/${to}-sky/${date(depart)}`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
@@ -25,6 +26,7 @@ class App extends React.Component {
             <div className="ui container">
         <Logo />
         <SearchBar onSubmit={this.onSearchSubmit}/>
+        <FlightResults results={this.state.results}/>
         </div>
         )
     }

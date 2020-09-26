@@ -1,18 +1,16 @@
 import React from 'react'
 
 class SearchBar extends React.Component { 
-    state= { from: '', to: '', depart: '', return: '', travellers: '' }
+    state= { from: '', to: '', depart: '', back: '', travellers: '' }
 
     onFormSubmit = event => {
         event.preventDefault()
 
-        this.props.onSubmit(this.state.from)
-        this.props.onSubmit(this.state.to)
-        this.props.onSubmit(this.state.depart)
-        this.props.onSubmit(this.state.return)
-        this.props.onSubmit(this.state.travellers)
+        this.props.onSubmit(this.state.from, this.state.to, this.state.depart,this.state.back, this.state.travellers)
+
     
     }
+
     render(){
 return (
     <div>
@@ -29,7 +27,7 @@ return (
             <label htmlFor="depart">Depart</label>
             <input type="date" value={this.state.depart} onChange={(e) => this.setState({ depart: e.target.value })} className="depart"/>
             <label htmlFor="return">Return</label>
-            <input type="date" value={this.state.return} onChange={(e) => this.setState({ return: e.target.value })} className="return"/>
+            <input type="date" value={this.state.back} onChange={(e) => this.setState({ back: e.target.value })} className="return"/>
             <label htmlFor="travellers">Travellers</label>
             <input type="number" value={this.state.travellers} onChange={(e) => this.setState({ travellers: e.target.value })} className="travellers"/>
                 </div>
