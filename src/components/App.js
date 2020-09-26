@@ -19,7 +19,7 @@ class App extends React.Component {
     }).then(response => response.json())
     .then(data => this.setState({ results: data }))
 
-    console.log(this.state.results)
+    
     }
     render() {
         return(
