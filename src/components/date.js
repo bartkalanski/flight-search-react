@@ -1,2 +1,2 @@
-let date = (date) => date.split(' ').reverse().join('')
+let date = (date) => date === "anytime" ? "anytime" : date.split(' ').reverse().join('')
 export default date
