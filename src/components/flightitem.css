@@ -4,7 +4,8 @@
             justify-content: center;
             align-items: center;
             font-family: 'Lato', sans-serif;
-            width: 60%;
+            width: 50%;
+            margin: 0 !important;
         }
         
         .results__flight-container {
@@ -50,7 +51,21 @@
             font-size: 18px;
         }
         
-        @media only screen and (max-width: 600px) {
+        .results__header {
+            position: absolute;
+            top: 0.6rem;
+            left: 1rem;
+            font-weight: 300;
+        }
+        
+        .results__section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media only screen and (max-width: 900px) {
             .results__container {
                 width: 100%;
             }
@@ -59,5 +74,8 @@
             }
             .results__price-container {
                 margin-right: 1rem;
+            }
+            .results__section {
+                flex-direction: column;
             }
         }
