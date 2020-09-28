@@ -7,7 +7,7 @@ const FlightItem = (props) => {
         console.log(props.results)
      return (
          <div className="ui segment results__container">
-             <div className="results__header">{props.outbound}, {skyscannerDate(props.date)}</div>
+             <div className="results__header">{props.outbound} <div>{skyscannerDate(props.date)}</div></div>
        
              <div className="results__flight-container">
              <div className="results__flight-airline">{props.results.Carriers[0].Name}</div>

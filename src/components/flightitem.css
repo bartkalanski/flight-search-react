@@ -54,9 +54,14 @@
         
         .results__header {
             position: absolute;
+            display: flex;
             top: 0.6rem;
             left: 1rem;
             font-weight: 300;
+        }
+        
+        .results__header div {
+            margin-left: 1rem;
         }
         
         .results__section {
