@@ -4,7 +4,7 @@ import skyscannerDate from './skyscannerDate'
 const FlightItem = (props) => {
 
     if(props.results.Quotes !== undefined){ 
-        console.log(props.results)
+       // User submitted the form
      return (
          <div className="ui segment results__container">
              <div className="results__header">{props.outbound} <div>{skyscannerDate(props.date)}</div></div>
@@ -25,7 +25,7 @@ const FlightItem = (props) => {
                  </div>
              </div>
              <div className="results__price-container">
-             <div className="results__price">£{props.results.Quotes[0].MinPrice}</div>
+             <div className="results__price">£{props.results.Quotes[0].MinPrice} pp</div>
              <button className="ui primary button results__btn">
              Select<i className="right arrow icon"></i></button>
              </div>
@@ -33,6 +33,7 @@ const FlightItem = (props) => {
    </div>
      )}
      else{
+         // User hasnt submitted the form yet
          return <div></div>
      }
 }

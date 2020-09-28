@@ -7,7 +7,7 @@ import date from './date'
 
 class App extends React.Component {
     state = { results: ''}
-    onSearchSubmit = async (from, to, depart, back="anytime", travellers="1") => {
+    onSearchSubmit = async (from, to, depart, back="anytime") => {
   
 await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/UK/GBP/en-GB/${from}/${to}/${date(depart)}/${date(back)}`, {
 	"method": "GET",
@@ -16,8 +16,17 @@ await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apise
 		"x-rapidapi-key": "10519e3170mshfad2e75acb40046p1fdba8jsnca5e5cac79cd"
 	}
 })
-.then(response => response.json())
+.then(response => {
+    if (response.ok) {
+    return response.json();
+  } else {
+    console.log(response)
+  }})
 .then(data => this.setState({ results: data }))
+.catch(err => {
+	console.log(err);
+});
+
 
     
     }
@@ -27,6 +36,7 @@ await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apise
         <Logo />
         <SearchBar onSubmit={this.onSearchSubmit}/>
         <FlightResults results={this.state.results}/>
+        
         </div>
         )
     }
