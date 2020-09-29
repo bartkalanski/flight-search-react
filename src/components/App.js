@@ -1,15 +1,15 @@
 import React from 'react'
-import Logo from './Logo'
+import Logo from './Logo/Logo'
 import SearchBar from './SearchBar'
 import FlightResults from './FlightResults'
-import date from './date'
+import date from './Utilities/date'
 
 
 class App extends React.Component {
     state = { results: ''}
     onSearchSubmit = async (from, to, depart, back="anytime") => {
   
-await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/UK/GBP/en-GB/${from}/${to}/${date(depart)}/${date(back)}`, {
+   const response = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/UK/GBP/en-GB/${from}/${to}/${date(depart)}/${date(back)}`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",

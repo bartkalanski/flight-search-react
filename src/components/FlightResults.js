@@ -1,8 +1,8 @@
 import React from 'react'
-import FlightItem from './FlightItem'
-import flightDirection from './FlightDirection'
+import FlightItem from './FlightItem/FlightItem'
+import flightDirection from './Utilities/FlightDirection'
 import ErrorMessage from './ErrorMessage'
-import './flightitem.css'
+import './FlightItem/flightitem.css'
 
 const FlightResults = (props) => {
 

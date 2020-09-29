@@ -1,5 +1,5 @@
 import React from 'react'
-import skyscannerDate from './skyscannerDate'
+import skyscannerDate from '../Utilities/skyscannerDate'
 
 const FlightItem = (props) => {
 

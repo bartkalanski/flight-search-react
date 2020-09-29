@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/skyscanner-logo.svg'
+import logo from '../../images/skyscanner-logo.svg'
 import './logo.css'
 
 const Logo = () => {
