@@ -1,11 +1,11 @@
 import React from "react";
 
-const ErrorMessage = (props) => {
+const ErrorMessage = ({ errorTop, errorBottom }) => {
   return (
     <div className="ui negative message">
       <i className="close icon"></i>
-      <div className="header">{props.errorTop}</div>
-      <p>{props.errorBottom}</p>
+      <div className="header">{errorTop}</div>
+      <p>{errorBottom}</p>
     </div>
   );
 };

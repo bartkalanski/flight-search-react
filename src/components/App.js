@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./Logo/Logo";
 import SearchBar from "./SearchBar";
 import FlightResults from "./FlightResults";
 import date from "./Utilities/date";
 
-class App extends React.Component {
-  state = { results: "" };
-  onSearchSubmit = async (from, to, depart, back = "anytime") => {
+const App = () => {
+  const [results, setResults] = useState("");
+  const onSearchSubmit = async (from, to, depart, back = "anytime") => {
     const response = await fetch(
       `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/UK/GBP/en-GB/${from}/${to}/${date(
         depart
@@ -20,28 +20,18 @@ class App extends React.Component {
             "10519e3170mshfad2e75acb40046p1fdba8jsnca5e5cac79cd",
         },
       }
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          console.log(response);
-        }
-      })
-      .then((data) => this.setState({ results: data }))
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  render() {
-    return (
-      <div className="ui container">
-        <Logo />
-        <SearchBar onSubmit={this.onSearchSubmit} />
-        <FlightResults results={this.state.results} />
-      </div>
     );
-  }
-}
+    const data = await response.json();
+    setResults(data);
+  };
+
+  return (
+    <div className="ui container">
+      <Logo />
+      <SearchBar onSubmit={onSearchSubmit} />
+      <FlightResults results={results} />
+    </div>
+  );
+};
 
 export default App;
