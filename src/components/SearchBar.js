@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-const SearchBar = (props) => {
-  const [from, getFrom] = useState("");
-  const [to, getTo] = useState("");
-  const [depart, getDepart] = useState("");
-  const [back, getBack] = useState("");
+const SearchBar = ({ onSubmit }) => {
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [depart, setDepart] = useState("");
+  const [back, setBack] = useState("");
 
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    props.onSubmit(from, to, depart, back);
+    onSubmit(from, to, depart, back);
   };
 
   return (
@@ -20,32 +20,36 @@ const SearchBar = (props) => {
       <div className="ui bottom attached active tab clearing segment">
         <form onSubmit={onFormSubmit} className="ui form">
           <div className="field">
-            <label htmlFor="from">From</label>
+            <label for="fly from">From</label>
             <input
+              name="fly from"
               type="text"
               value={from}
-              onChange={(e) => getFrom(e.target.value)}
+              onChange={(e) => setFrom(e.target.value)}
               className="from"
             />
-            <label htmlFor="to">To</label>
+            <label for="fly to">To</label>
             <input
+              name="fly to"
               type="text"
               value={to}
-              onChange={(e) => getTo(e.target.value)}
+              onChange={(e) => setTo(e.target.value)}
               className="to"
             />
-            <label htmlFor="depart">Depart</label>
+            <label for="departure date">Depart</label>
             <input
+              name="departure date"
               type="date"
               value={depart}
-              onChange={(e) => getDepart(e.target.value)}
+              onChange={(e) => setDepart(e.target.value)}
               className="depart"
             />
-            <label htmlFor="return">Return</label>
+            <label for="return date">Return</label>
             <input
+              name="return date"
               type="date"
               value={back}
-              onChange={(e) => getBack(e.target.value)}
+              onChange={(e) => setBack(e.target.value)}
               className="return"
             />
           </div>
