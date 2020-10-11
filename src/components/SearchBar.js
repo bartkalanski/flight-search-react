@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 
 const SearchBar = ({ onSubmit }) => {
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
-  const [depart, setDepart] = useState("");
-  const [back, setBack] = useState("");
+  const [formValues, setFormValues] = useState({
+    from: "",
+    to: "",
+    depart: "",
+    back: "",
+  });
+
+  const handleChange = (name, value) => {
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    onSubmit(from, to, depart, back);
+    onSubmit(formValues);
   };
 
   return (
@@ -20,36 +29,36 @@ const SearchBar = ({ onSubmit }) => {
       <div className="ui bottom attached active tab clearing segment">
         <form onSubmit={onFormSubmit} className="ui form">
           <div className="field">
-            <label for="fly from">From</label>
+            <label for="from">From</label>
             <input
-              name="fly from"
+              name="from"
               type="text"
-              value={from}
-              onChange={(e) => setFrom(e.target.value)}
+              value={formValues.from}
+              onChange={(e) => handleChange(e.target.name, e.target.value)}
               className="from"
             />
-            <label for="fly to">To</label>
+            <label for="to">To</label>
             <input
-              name="fly to"
+              name="to"
               type="text"
-              value={to}
-              onChange={(e) => setTo(e.target.value)}
+              value={formValues.to}
+              onChange={(e) => handleChange(e.target.name, e.target.value)}
               className="to"
             />
-            <label for="departure date">Depart</label>
+            <label for="depart">Depart</label>
             <input
-              name="departure date"
+              name="depart"
               type="date"
-              value={depart}
-              onChange={(e) => setDepart(e.target.value)}
+              value={formValues.depart}
+              onChange={(e) => handleChange(e.target.name, e.target.value)}
               className="depart"
             />
-            <label for="return date">Return</label>
+            <label for="back">Return</label>
             <input
-              name="return date"
+              name="back"
               type="date"
-              value={back}
-              onChange={(e) => setBack(e.target.value)}
+              value={formValues.back}
+              onChange={(e) => handleChange(e.target.name, e.target.value)}
               className="return"
             />
           </div>
