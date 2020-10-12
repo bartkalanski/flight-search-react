@@ -8,17 +8,21 @@ const SearchBar = ({ onSubmit }) => {
     back: "",
   });
 
-  const handleChange = (name, value) => {
+  const handleChange = (e) => {
     setFormValues({
       ...formValues,
-      [name]: value,
+      [e.target.name]: e.target.value,
     });
   };
 
   const onFormSubmit = (event) => {
-    event.preventDefault();
-
-    onSubmit(formValues);
+    event.preventDefault()
+    onSubmit(
+      formValues.from,
+      formValues.to,
+      formValues.depart,
+      formValues.back
+    );
   };
 
   return (
@@ -34,7 +38,7 @@ const SearchBar = ({ onSubmit }) => {
               name="from"
               type="text"
               value={formValues.from}
-              onChange={(e) => handleChange(e.target.name, e.target.value)}
+              onChange={handleChange}
               className="from"
             />
             <label for="to">To</label>
@@ -42,7 +46,7 @@ const SearchBar = ({ onSubmit }) => {
               name="to"
               type="text"
               value={formValues.to}
-              onChange={(e) => handleChange(e.target.name, e.target.value)}
+              onChange={handleChange}
               className="to"
             />
             <label for="depart">Depart</label>
@@ -50,7 +54,7 @@ const SearchBar = ({ onSubmit }) => {
               name="depart"
               type="date"
               value={formValues.depart}
-              onChange={(e) => handleChange(e.target.name, e.target.value)}
+              onChange={handleChange}
               className="depart"
             />
             <label for="back">Return</label>
@@ -58,7 +62,7 @@ const SearchBar = ({ onSubmit }) => {
               name="back"
               type="date"
               value={formValues.back}
-              onChange={(e) => handleChange(e.target.name, e.target.value)}
+              onChange={handleChange}
               className="return"
             />
           </div>
