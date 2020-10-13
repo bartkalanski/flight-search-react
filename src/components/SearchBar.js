@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Input from "./Input";
 
 const SearchBar = ({ onSubmit }) => {
   const [formValues, setFormValues] = useState({
@@ -16,7 +17,7 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   const onFormSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     onSubmit(
       formValues.from,
       formValues.to,
@@ -33,32 +34,32 @@ const SearchBar = ({ onSubmit }) => {
       <div className="ui bottom attached active tab clearing segment">
         <form onSubmit={onFormSubmit} className="ui form">
           <div className="field">
-            <label for="from">From</label>
-            <input
+            <Input
+              label="from"
               name="from"
               type="text"
               value={formValues.from}
               onChange={handleChange}
               className="from"
             />
-            <label for="to">To</label>
-            <input
+            <Input
+              label="to"
               name="to"
               type="text"
               value={formValues.to}
               onChange={handleChange}
               className="to"
             />
-            <label for="depart">Depart</label>
-            <input
+            <Input
+              label="depart"
               name="depart"
               type="date"
               value={formValues.depart}
               onChange={handleChange}
               className="depart"
             />
-            <label for="back">Return</label>
-            <input
+            <Input
+              label="back"
               name="back"
               type="date"
               value={formValues.back}
