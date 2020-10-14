@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Input = ({ label, name, type, value, onChange, className }) => {
+const Input = ({ label, name, type, value, getInputState, className }) => {
+  const [formValues, setFormValues] = useState({
+    from: "",
+    to: "",
+    depart: "",
+    back: "",
+  });
+
+  const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+    getInputState(e);
+  };
+
   return (
     <React.Fragment>
       <label for={label}>{label}</label>
@@ -8,7 +23,7 @@ const Input = ({ label, name, type, value, onChange, className }) => {
         name={name}
         type={type}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         className={className}
       />
     </React.Fragment>

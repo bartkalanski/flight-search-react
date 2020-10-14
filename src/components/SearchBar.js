@@ -9,7 +9,13 @@ const SearchBar = ({ onSubmit }) => {
     back: "",
   });
 
-  const handleChange = (e) => {
+  /* const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };*/
+  const getInputState = (e) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
@@ -35,36 +41,36 @@ const SearchBar = ({ onSubmit }) => {
         <form onSubmit={onFormSubmit} className="ui form">
           <div className="field">
             <Input
-              label="from"
+              label="From"
               name="from"
               type="text"
               value={formValues.from}
-              onChange={handleChange}
-              className="from"
+              getInputState={getInputState}
+              className="From"
             />
             <Input
-              label="to"
+              label="To"
               name="to"
               type="text"
               value={formValues.to}
-              onChange={handleChange}
-              className="to"
+              getInputState={getInputState}
+              className="To"
             />
             <Input
-              label="depart"
+              label="Depart"
               name="depart"
               type="date"
               value={formValues.depart}
-              onChange={handleChange}
-              className="depart"
+              getInputState={getInputState}
+              className="Depart"
             />
             <Input
-              label="back"
+              label="Back"
               name="back"
               type="date"
               value={formValues.back}
-              onChange={handleChange}
-              className="return"
+              getInputState={getInputState}
+              className="Eeturn"
             />
           </div>
           <button className="large right floated ui blue button">
