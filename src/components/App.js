@@ -6,7 +6,7 @@ import date from "./Utilities/date";
 
 const App = () => {
   const [results, setResults] = useState("");
-  const onSearchSubmit = async (from, to, depart, back = "anytime") => {
+  const onSearchSubmit = async ({ from, to, depart, back }) => {
     const response = await fetch(
       `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/UK/GBP/en-GB/${from}/${to}/${date(
         depart

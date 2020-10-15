@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 
-const Input = ({ label, name, type, value, getInputState, className }) => {
-  const [formValues, setFormValues] = useState({
-    from: "",
-    to: "",
-    depart: "",
-    back: "",
-  });
+const Input = ({ label, name, type, className, handleFieldChange }) => {
+  const [value, setValue] = useState("");
 
   const handleChange = (e) => {
-    setFormValues({
-      ...formValues,
-      [e.target.name]: e.target.value,
-    });
-    getInputState(e);
+    setValue(e.target.value);
+    if (handleFieldChange) {
+      handleFieldChange(e.target.name, e.target.value);
+    }
   };
 
   return (

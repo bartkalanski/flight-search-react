@@ -2,34 +2,20 @@ import React, { useState } from "react";
 import Input from "./Input";
 
 const SearchBar = ({ onSubmit }) => {
-  const [formValues, setFormValues] = useState({
-    from: "",
-    to: "",
-    depart: "",
-    back: "",
-  });
+  const [formValues, setFormValues] = useState({});
 
-  /* const handleChange = (e) => {
+  const handleFormValuesChange = (name, value) => {
     setFormValues({
       ...formValues,
-      [e.target.name]: e.target.value,
-    });
-  };*/
-  const getInputState = (e) => {
-    setFormValues({
-      ...formValues,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    onSubmit(
-      formValues.from,
-      formValues.to,
-      formValues.depart,
-      formValues.back
-    );
+    if (onSubmit) {
+      onSubmit(formValues);
+    }
   };
 
   return (
@@ -44,32 +30,28 @@ const SearchBar = ({ onSubmit }) => {
               label="From"
               name="from"
               type="text"
-              value={formValues.from}
-              getInputState={getInputState}
+              handleFieldChange={handleFormValuesChange}
               className="From"
             />
             <Input
               label="To"
               name="to"
               type="text"
-              value={formValues.to}
-              getInputState={getInputState}
+              handleFieldChange={handleFormValuesChange}
               className="To"
             />
             <Input
               label="Depart"
               name="depart"
               type="date"
-              value={formValues.depart}
-              getInputState={getInputState}
+              handleFieldChange={handleFormValuesChange}
               className="Depart"
             />
             <Input
               label="Back"
               name="back"
               type="date"
-              value={formValues.back}
-              getInputState={getInputState}
+              handleFieldChange={handleFormValuesChange}
               className="Eeturn"
             />
           </div>
