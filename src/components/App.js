@@ -3,16 +3,16 @@ import Logo from "./Logo/Logo";
 import SearchBar from "./SearchBar";
 import FlightResults from "./FlightResults";
 import date from "./Utilities/date";
+import axios from "axios";
 
 const App = () => {
   const [results, setResults] = useState("");
   const onSearchSubmit = async ({ from, to, depart, back }) => {
-    const response = await fetch(
+    const { data } = await axios.get(
       `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/UK/GBP/en-GB/${from}/${to}/${date(
         depart
       )}/${date(back)}`,
       {
-        method: "GET",
         headers: {
           "x-rapidapi-host":
             "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
@@ -21,7 +21,6 @@ const App = () => {
         },
       }
     );
-    const data = await response.json();
     setResults(data);
   };
 
