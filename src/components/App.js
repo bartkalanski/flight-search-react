@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Logo from "./Logo/Logo";
 import SearchBar from "./SearchBar";
 import FlightResults from "./FlightResults";
 import Skyscanner from "./Skyscanner";
 import date from "./Utilities/date";
-import axios from "axios";
+import beach from "./beach-1.jpg";
+import "./App.css";
 
 const App = () => {
   const [results, setResults] = useState("");
@@ -19,7 +20,12 @@ const App = () => {
   return (
     <div className="ui container">
       <Logo />
-      <SearchBar onSubmit={onSearchSubmit} />
+      <img
+        className="ui fluid image beach-background-img"
+        alt="beach"
+        src={beach}
+      ></img>
+      <SearchBar className="search-bar" onSubmit={onSearchSubmit} />
       <FlightResults results={results} />
     </div>
   );

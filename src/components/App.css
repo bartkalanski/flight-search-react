@@ -1,0 +1,9 @@
+.beach-background-img{
+    border: red 1px solid;
+    position: absolute;
+    z-index: 100;
+}
+.search-bar{
+    position: relative;
+    z-index: 1;
+}
