@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Input from "./Input";
 
+import "./App.css";
+
 const SearchBar = ({ onSubmit }) => {
   const [formValues, setFormValues] = useState({});
 
@@ -12,18 +14,22 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   const onFormSubmit = (event) => {
+    const fromIataCode = document.querySelector("#autocomplete-airport-1")
+      .dataset.iata;
+    const toIataCode = document.querySelector("#autocomplete-airport-2").dataset
+      .iata;
     event.preventDefault();
     if (onSubmit) {
-      onSubmit(formValues);
+      onSubmit(
+        formValues,
+        (formValues.from = fromIataCode),
+        (formValues.to = toIataCode)
+      );
     }
   };
-
   return (
-    <div>
-      <div className="ui top attached tabular menu">
-        <div className="active item">Flights</div>
-      </div>
-      <div className="ui bottom attached active tab clearing segment">
+    <div className="search-bar">
+      <div className="content-box ui bottom attached active tab clearing segment">
         <form onSubmit={onFormSubmit} className="ui form">
           <div className="field">
             <div class="four fields">
@@ -34,6 +40,8 @@ const SearchBar = ({ onSubmit }) => {
                   type="text"
                   handleFieldChange={handleFormValuesChange}
                   className="From"
+                  dataIata="A"
+                  id="autocomplete-airport-1"
                 />
               </div>
               <div class="field">
@@ -43,6 +51,8 @@ const SearchBar = ({ onSubmit }) => {
                   type="text"
                   handleFieldChange={handleFormValuesChange}
                   className="To"
+                  dataIata="B"
+                  id="autocomplete-airport-2"
                 />
               </div>
               <div class="field">
@@ -51,6 +61,7 @@ const SearchBar = ({ onSubmit }) => {
                   name="depart"
                   type="date"
                   handleFieldChange={handleFormValuesChange}
+                  dataIata="C"
                   className="Depart"
                 />
               </div>
@@ -60,6 +71,7 @@ const SearchBar = ({ onSubmit }) => {
                   name="back"
                   type="date"
                   handleFieldChange={handleFormValuesChange}
+                  dataIata="D"
                   className="Eeturn"
                 />
               </div>

@@ -1,9 +1,18 @@
-.beach-background-img{
-    border: red 1px solid;
-    position: absolute;
-    z-index: 100;
-}
 .search-bar{
     position: relative;
-    z-index: 1;
+    top: -35vh;
+    opacity: .8;
+    
 }
+.ui.blue.button{
+    opacity: 1;
+}
+@media only screen and (max-width: 700px) {
+    .search-bar {
+      top: 0;
+      opacity: 1;
+    }
+    img.ui.fluid.image.beach-background-img{
+        display: none;
+    }
+  }
