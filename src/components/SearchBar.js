@@ -33,13 +33,13 @@ const SearchBar = ({ onSubmit }) => {
         <form onSubmit={onFormSubmit} className="ui form">
           <div className="field">
             <div class="four fields">
-              <div class="field">
+              <div class="ui search field">
                 <Input
                   label="From"
                   name="from"
                   type="text"
                   handleFieldChange={handleFormValuesChange}
-                  className="From"
+                  className="prompt From"
                   dataIata="A"
                   id="autocomplete-airport-1"
                 />
