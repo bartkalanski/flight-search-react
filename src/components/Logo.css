@@ -1,0 +1,32 @@
+.logo__container{
+    width: 100%;
+    text-align: left;
+}
+.logo__logo{
+    width: 35%;
+    padding-left: 4rem;
+}
+@media screen and (min-width: 700px){
+    .logo__logo{
+        width: 25%;
+  
+    }
+}
+@media screen and (min-width: 900px){
+    .logo__logo{
+        width: 20%;
+  
+    }
+}
+@media only screen and (min-width: 1200px){
+    .logo__logo{
+        width: 15%;
+      
+    }
+}
+@media only screen and (min-width: 1600px){
+    .logo__logo{
+        width: 10%;
+ 
+    }
+}

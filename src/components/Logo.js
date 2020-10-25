@@ -1,7 +1,6 @@
 import React from "react";
-import logo from "../../images/skyscanner-logo.svg";
-import "./logo.css";
-
+import logo from "../images/skyscanner-logo.svg";
+import "./Logo.css";
 const Logo = () => {
   return (
     <div className="logo__container">

@@ -1,11 +1,12 @@
 import React from "react";
+import "./ErrorMessage.css";
 
 const ErrorMessage = ({ errorTop, errorBottom }) => {
   return (
-    <div className="ui negative message">
-      <i className="close icon"></i>
-      <div className="header">{errorTop}</div>
-      <p>{errorBottom}</p>
+    <div className="error__container">
+      <i className="error__icon"></i>
+      <div className="error__header">{errorTop}</div>
+      <p className="error_msg">{errorBottom}</p>
     </div>
   );
 };

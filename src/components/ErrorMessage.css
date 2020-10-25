@@ -1,0 +1,14 @@
+.error__container {
+	color: #D8000C;
+	background-color: #FFBABA;
+    border: 1px solid;
+	margin: 10px auto;
+	padding: 15px 10px 15px 50px;
+	max-width: 460px;
+}
+.error__header{
+    font-size: 1.8rem;
+}
+.error__msg{
+    font-size: 1.4rem;
+}

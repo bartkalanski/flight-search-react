@@ -6,9 +6,11 @@
   align-items: center;
   font-family: "Lato", sans-serif;
   width: 50%;
-  top: -25vh;
+  top: 0;
   margin: 0 !important;
   margin-top: 1rem !important;
+  border: 1px solid lightgray;
+  
 }
 
 .results__flight-container {
@@ -17,6 +19,7 @@
   flex-direction: row;
   align-items: center;
   margin-left: 3rem;
+  margin-top: 3rem;
   width: 80%;
 }
 

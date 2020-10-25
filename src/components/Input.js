@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import airportAutcomopleteJs from "airport-autocomplete-js";
+import "./Input.css";
 
 const Input = ({
   label,
@@ -20,22 +21,24 @@ const Input = ({
   };
 
   return (
-    <React.Fragment>
+    <div className="search-bar__input-container-small">
       <Helmet>
         <script>AirportInput("autocomplete-airport-1")</script>
         <script>AirportInput("autocomplete-airport-2")</script>
       </Helmet>
-      <label for={label}>{label}</label>
+      <label className="search-bar__input-label" for={label}>
+        {label}
+      </label>
       <input
         name={name}
         type={type}
         value={value}
         onChange={handleChange}
-        className={className}
+        className={(className, "search-bar__input-input")}
         data-iata={dataIata}
         id={id}
       />
-    </React.Fragment>
+    </div>
   );
 };
 

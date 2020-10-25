@@ -1,35 +1,58 @@
-.search-bar{
-    position: relative;
-    top: -35vh;
-    opacity: .8;
-    
-}
-.ui.blue.button{
-    opacity: 1;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.autocomplete-results{
-    cursor: pointer;
-    margin: 1rem 0 0 .5rem;
-    padding-left: .5rem;
-}
-.autocomplete-result{
- padding-left: .5rem;
-    
-}
-.autocomplete-result:hover{
-    background-color:lightgray;
-    border-radius: .3rem;
-    
-    
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
-@media only screen and (max-width: 700px) {
-    .search-bar {
-      top: 0;
-      opacity: 1;
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+.app__container{
+    width: 100%;
+    
+}
+.app__menu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.app__flights{
+    background: #042759;
+    
+    color: white;
+    margin-left: 4rem;
+    padding: 1rem 3rem;
+    letter-spacing: 1px;
+    font-size: 1.7rem;
+    border: 0.5px lightgray solid;
+    border-bottom: none;
+    border-radius: .5rem .5rem 0 0;
+
+}
+.app-background__container{
+    display: none;
+}
+.app-background__header{
+    display: none;
+}
+.app-background__img{
+    display: none;
+}
+@media screen and (min-width: 700px){
+    .app__flights{
+        background: #111236;
     }
-    img.ui.fluid.image.beach-background-img{
-        display: none;
-    }
-  }
+    
+}
