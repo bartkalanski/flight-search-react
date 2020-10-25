@@ -1,7 +1,6 @@
 .search-bar__container {
   background: #042759;
   color: white;
-  
 }
 .search-bar__form {
   width: 100%;
@@ -22,6 +21,10 @@
   border-radius: 0.5rem;
   letter-spacing: 1px;
 }
+.fa-arrow-right {
+  margin-left: 0.75rem;
+}
+
 .search-bar__input-container {
   display: flex;
   flex-direction: column;
@@ -42,45 +45,42 @@
   align-items: center;
   justify-content: space-between;
 }
-.autocomplete-results{
-    display: block;
-    width: 45%;
-    position: absolute;
-    margin-top: 1rem;
-    border-radius: 5px;
-    background: white;
-    
+.autocomplete-results {
+  display: block;
+  width: 45%;
+  position: absolute;
+  margin-top: 1rem;
+  border-radius: 5px;
+  background: white;
 }
-.autocomplete-result{
-    color: black;
-    padding: 0.5rem 1rem;
-    border-bottom: 1px solid lightgrey;
-    
+.autocomplete-result {
+  color: black;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid lightgrey;
 }
-.autocomplete-result:hover{
-   background: lightgrey;
+.autocomplete-result:hover {
+  background: lightgrey;
 }
 
-@media screen and (min-width: 700px){
-    .search-bar__container{
-        height: 70vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url("../images/beach-1.jpg");
-        background-position: 0% 70%;
-        
-    }
-    .search-bar__form{
-        background: #111236;
-        width: 85%;
-        padding: 2rem;
-        border-radius: .5rem;
-    }.search-bar__input-container{
-        flex-direction: row;
-    }
-    .autocomplete-results{
-        width: 13%;
-    }
-   
+@media screen and (min-width: 700px) {
+  .search-bar__container {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/beach-1.jpg");
+    background-position: 0% 70%;
+  }
+  .search-bar__form {
+    background: #111236;
+    width: 85%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+  .search-bar__input-container {
+    flex-direction: row;
+  }
+  .autocomplete-results {
+    width: 13%;
+  }
 }

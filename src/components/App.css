@@ -41,6 +41,9 @@ body {
     border-radius: .5rem .5rem 0 0;
 
 }
+.fa-plane{
+    margin-right: .75rem;
+}
 .app-background__container{
     display: none;
 }

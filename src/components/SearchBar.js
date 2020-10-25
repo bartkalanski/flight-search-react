@@ -72,7 +72,7 @@ const SearchBar = ({ onSubmit }) => {
             />
           </div>
         </div>
-        <button className="search-bar__btn">Search Flights</button>
+        <button className="search-bar__btn">Search Flights<i class="fas fa-arrow-right"></i></button>
       </form>
     </div>
   );
