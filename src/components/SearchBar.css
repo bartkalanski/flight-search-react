@@ -15,11 +15,16 @@
   margin-right: 1.5rem;
   padding: 1rem 3rem;
   font-size: 2rem;
-  background: teal;
+  font-weight: 700;
+  background: #00a698;
   color: white;
   border: none;
+  cursor: pointer;
   border-radius: 0.5rem;
   letter-spacing: 1px;
+}
+.search-bar__btn:hover {
+  background: teal;
 }
 .fa-arrow-right {
   margin-left: 0.75rem;
@@ -47,7 +52,7 @@
 }
 .autocomplete-results {
   display: block;
-  width: 45%;
+  width: 50%;
   position: absolute;
   margin-top: 1rem;
   border-radius: 5px;
@@ -61,7 +66,19 @@
 .autocomplete-result:hover {
   background: lightgrey;
 }
-
+@media screen and (max-width: 400px) {
+  .search-bar__input-text {
+    flex-direction: column;
+  }
+  .search-bar__input-date {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 400px) {
+  .autocomplete-results {
+    width: 35%;
+  }
+}
 @media screen and (min-width: 700px) {
   .search-bar__container {
     height: 70vh;
@@ -84,3 +101,11 @@
     width: 13%;
   }
 }
+@media screen and (min-width: 1500px) {
+    .search-bar__container {
+      background-image: url("../images/beach-4k.jpg");
+      background-position: stretch;
+    }
+    .autocomplete-results {
+        width: 8%;
+      }}

@@ -26,3 +26,12 @@
         border: 1px solid lightgray;
      }
  }
+ @media screen and (min-width: 1500px){
+    .search-bar__input-label{
+        font-size: 2rem;
+    }
+    .search-bar__input-container-small{
+        width: 30rem;
+     
+    }
+}

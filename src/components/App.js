@@ -22,7 +22,9 @@ const App = () => {
     <div className="app__container">
       <Logo />
       <div className="app__menu">
-        <div className="app__flights"><i class="fas fa-plane"></i>Flights</div>
+        <div className="app__flights">
+          <i class="fas fa-plane"></i>Flights
+        </div>
       </div>
       <div className="app-background__container">
         <h1 className="app-background__header">Let the journey begin</h1>

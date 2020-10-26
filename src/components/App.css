@@ -1,61 +1,60 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 body {
-    font-size: 1.4rem;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    min-height: 100vh;
+  font-size: 1.4rem;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
 }
-.app__container{
-    width: 100%;
-    
+.app__container {
+  width: 100%;
 }
-.app__menu{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.app__menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-.app__flights{
-    background: #042759;
-    
-    color: white;
-    margin-left: 4rem;
-    padding: 1rem 3rem;
-    letter-spacing: 1px;
-    font-size: 1.7rem;
-    border: 0.5px lightgray solid;
-    border-bottom: none;
-    border-radius: .5rem .5rem 0 0;
+.app__flights {
+  background: #042759;
+  cursor: pointer;
+  color: white;
+  margin-left: 4rem;
+  padding: 1rem 3rem;
+  letter-spacing: 0.8px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  border: 0.5px lightgray solid;
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.fa-plane {
+  margin-right: 0.75rem;
+}
+.app-background__container {
+  display: none;
+}
+.app-background__header {
+  display: none;
+}
+.app-background__img {
+  display: none;
+}
+@media screen and (min-width: 700px) {
+  .app__flights {
+    background: #111236;
+  }
+}
 
-}
-.fa-plane{
-    margin-right: .75rem;
-}
-.app-background__container{
-    display: none;
-}
-.app-background__header{
-    display: none;
-}
-.app-background__img{
-    display: none;
-}
-@media screen and (min-width: 700px){
-    .app__flights{
-        background: #111236;
-    }
-    
-}

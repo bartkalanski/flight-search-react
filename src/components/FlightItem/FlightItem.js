@@ -33,7 +33,7 @@ const FlightItem = ({ results, date, arrival, departure, outbound }) => {
         <div className="results__price-container">
           <div className="results__price">£{results.Quotes[0].MinPrice} pp</div>
           <button className="ui primary button results__btn">
-            Select<i className="right arrow icon"></i>
+            Select<i class="fas fa-arrow-right"></i>
           </button>
         </div>
       </div>
