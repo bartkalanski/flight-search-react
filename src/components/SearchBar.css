@@ -1,0 +1,111 @@
+.search-bar__container {
+  background: #042759;
+  color: white;
+}
+.search-bar__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-bottom: 1rem;
+}
+.search-bar__btn {
+  align-self: flex-end;
+  margin-right: 1.5rem;
+  padding: 1rem 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  background: #00a698;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  letter-spacing: 1px;
+}
+.search-bar__btn:hover {
+  background: teal;
+}
+.fa-arrow-right {
+  margin-left: 0.75rem;
+}
+
+.search-bar__input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: center;
+  margin: 1rem 0;
+  width: 90%;
+}
+.search-bar__input-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-bar__input-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.autocomplete-results {
+  display: block;
+  width: 50%;
+  position: absolute;
+  margin-top: 1rem;
+  border-radius: 5px;
+  background: white;
+}
+.autocomplete-result {
+  color: black;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid lightgrey;
+}
+.autocomplete-result:hover {
+  background: lightgrey;
+}
+@media screen and (max-width: 400px) {
+  .search-bar__input-text {
+    flex-direction: column;
+  }
+  .search-bar__input-date {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 400px) {
+  .autocomplete-results {
+    width: 35%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .search-bar__container {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/beach-1.jpg");
+    background-position: 0% 70%;
+  }
+  .search-bar__form {
+    background: #111236;
+    width: 85%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+  .search-bar__input-container {
+    flex-direction: row;
+  }
+  .autocomplete-results {
+    width: 13%;
+  }
+}
+@media screen and (min-width: 1500px) {
+    .search-bar__container {
+      background-image: url("../images/beach-4k.jpg");
+      background-position: stretch;
+    }
+    .autocomplete-results {
+        width: 8%;
+      }}

@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
+import "./ErrorMessage.css";
 
-const ErrorMessage = (props) => { 
+const ErrorMessage = ({ errorTop, errorBottom }) => {
+  return (
+    <div className="error__container">
+      <i className="error__icon"></i>
+      <div className="error__header">{errorTop}</div>
+      <p className="error_msg">{errorBottom}</p>
+    </div>
+  );
+};
 
-    return (
-        <div className="ui negative message">
-        <i className="close icon"></i>
-        <div className="header">{props.errorTop}</div>
-        <p>{props.errorBottom}</p>
-        </div>)}
-
-export default ErrorMessage
+export default ErrorMessage;

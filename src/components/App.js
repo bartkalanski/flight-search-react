@@ -1,45 +1,39 @@
-import React from 'react'
-import Logo from './Logo/Logo'
-import SearchBar from './SearchBar'
-import FlightResults from './FlightResults'
-import date from './Utilities/date'
+import React, { useState } from "react";
+import Logo from "./Logo";
+import SearchBar from "./SearchBar";
+import FlightResults from "./FlightResults";
+import Skyscanner from "./API/Skyscanner";
+import date from "./Utilities/date";
+import beach from "../images/beach-2.jpg";
+import airportAutcomopleteJs from "airport-autocomplete-js";
+import "./App.css";
 
+const App = () => {
+  const [results, setResults] = useState("");
 
-class App extends React.Component {
-    state = { results: ''}
-    onSearchSubmit = async (from, to, depart, back="anytime") => {
-  
-   const response = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/UK/GBP/en-GB/${from}/${to}/${date(depart)}/${date(back)}`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-		"x-rapidapi-key": "10519e3170mshfad2e75acb40046p1fdba8jsnca5e5cac79cd"
-	}
-})
-.then(response => {
-    if (response.ok) {
-    return response.json();
-  } else {
-    console.log(response)
-  }})
-.then(data => this.setState({ results: data }))
-.catch(err => {
-	console.log(err);
-});
+  const onSearchSubmit = async ({ from, to, depart, back }) => {
+    const { data } = await Skyscanner.get(
+      `${from}/${to}/${date(depart)}/${date(back)}`
+    );
+    setResults(data);
+  };
 
-
-    
-    }
-    render() {
-        return(
-            <div className="ui container">
-        <Logo />
-        <SearchBar onSubmit={this.onSearchSubmit}/>
-        <FlightResults results={this.state.results}/>
-        
+  return (
+    <div className="app__container">
+      <Logo />
+      <div className="app__menu">
+        <div className="app__flights">
+          <i class="fas fa-plane"></i>Flights
         </div>
-        )
-    }
-}
+      </div>
+      <div className="app-background__container">
+        <h1 className="app-background__header">Let the journey begin</h1>
+        <img className="app-background__img" alt="beach" src={beach}></img>
+      </div>
+      <SearchBar className="search-bar" onSubmit={onSearchSubmit} />
+      <FlightResults results={results} />
+    </div>
+  );
+};
 
-export default App
+export default App;

@@ -1,39 +1,83 @@
-import React from 'react'
+import React, { useState } from "react";
+import Input from "./Input";
 
-class SearchBar extends React.Component { 
-    state= { from: '', to: '', depart: '', back: '', }
+import "./SearchBar.css";
 
-    onFormSubmit = event => {
-        event.preventDefault()
-        
-        this.props.onSubmit(this.state.from, this.state.to, this.state.depart,this.state.back)
-        
+const SearchBar = ({ onSubmit }) => {
+  const [formValues, setFormValues] = useState({});
 
-    
+  const handleFormValuesChange = (name, value) => {
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
+  const onFormSubmit = (event) => {
+    const fromIataCode = document.querySelector("#autocomplete-airport-1")
+      .dataset.iata;
+    const toIataCode = document.querySelector("#autocomplete-airport-2").dataset
+      .iata;
+    event.preventDefault();
+    if (onSubmit) {
+      onSubmit(
+        formValues,
+        (formValues.from = fromIataCode),
+        (formValues.to = toIataCode)
+      );
     }
+  };
+  return (
+    <div className="search-bar__container">
+      <form onSubmit={onFormSubmit} className="search-bar__form">
+        <div class="search-bar__input-container">
+          <div class="search-bar__input-text">
+            <Input
+              label="From"
+              name="from"
+              type="text"
+              handleFieldChange={handleFormValuesChange}
+              className="From"
+              dataIata="A"
+              id="autocomplete-airport-1"
+            />
 
-    render(){
-return (
-    <div>
-    <div className="ui top attached tabular menu">
-  <div className="active item">Flights</div>
-</div>
-<div className="ui bottom attached active tab clearing segment">
-<form onSubmit={this.onFormSubmit} className="ui form">
-                <div className="field">
-            <label htmlFor="from">From</label>
-            <input type="text" value={this.state.from} onChange={(e) => this.setState({ from: e.target.value })} className="from"/>
-            <label htmlFor="to">To</label>
-            <input type="text" value={this.state.to} onChange={(e) => this.setState({ to: e.target.value })} className="to"/>
-            <label htmlFor="depart">Depart</label>
-            <input type="date" value={this.state.depart} onChange={(e) => this.setState({ depart: e.target.value })} className="depart"/>
-            <label htmlFor="return">Return</label>
-            <input type="date" value={this.state.back} onChange={(e) => this.setState({ back: e.target.value })} className="return"/>
-                </div>
-                <button className="large right floated ui blue button">Search Flights</button>
-            </form>
-</div>
-</div>)}
-}
+            <Input
+              label="To"
+              name="to"
+              type="text"
+              handleFieldChange={handleFormValuesChange}
+              className="To"
+              dataIata="B"
+              id="autocomplete-airport-2"
+            />
+          </div>
+          <div class="search-bar__input-date">
+            <Input
+              label="Depart"
+              name="depart"
+              type="date"
+              handleFieldChange={handleFormValuesChange}
+              dataIata="C"
+              className="Depart"
+            />
 
-export default SearchBar
+            <Input
+              label="Back"
+              name="back"
+              type="date"
+              handleFieldChange={handleFormValuesChange}
+              dataIata="D"
+              className="Eeturn"
+            />
+          </div>
+        </div>
+        <button className="search-bar__btn">
+          Search Flights<i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default SearchBar;
