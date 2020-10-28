@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./Input";
 
 import "./SearchBar.css";
 
 const SearchBar = ({ onSubmit }) => {
   const [formValues, setFormValues] = useState({});
+  const [refValues, setRefValues] = useState({});
 
-  const handleFormValuesChange = (name, value) => {
+  const handleFormValuesChange = (name, value, ref) => {
+    setRefValues({
+      ...refValues,
+      [name]: ref.current.dataset, //ref.current.dataset.iata
+    });
     setFormValues({
       ...formValues,
       [name]: value,
@@ -20,6 +25,7 @@ const SearchBar = ({ onSubmit }) => {
       .iata;
     event.preventDefault();
     if (onSubmit) {
+      console.log(refValues);
       onSubmit(
         formValues,
         (formValues.from = fromIataCode),
@@ -68,7 +74,7 @@ const SearchBar = ({ onSubmit }) => {
               type="date"
               handleFieldChange={handleFormValuesChange}
               dataIata="D"
-              className="Eeturn"
+              className="Return"
             />
           </div>
         </div>
