@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet";
-import airportAutcomopleteJs from "airport-autocomplete-js";
+import React, { useState, useRef, useEffect } from "react";
+
+
 import "./Input.css";
 
 const Input = ({
@@ -9,24 +9,33 @@ const Input = ({
   type,
   handleFieldChange,
   className,
-  dataIata,
   id,
+
+  registerRef
 }) => {
   const [value, setValue] = useState("");
+  const dataI = useRef(null);
+
+  useEffect(() => {
+    if(registerRef) {
+      registerRef(name, dataI);    
+    }
+  }, [])
+
   const handleChange = (e) => {
     setValue(e.target.value);
+
     if (handleFieldChange) {
-      handleFieldChange(e.target.name, e.target.value);
+      handleFieldChange(
+        e.target.name, 
+        e.target.value
+      );
     }
   };
 
   return (
     <div className="search-bar__input-container-small">
-      <Helmet>
-        <script>AirportInput("autocomplete-airport-1")</script>
-        <script>AirportInput("autocomplete-airport-2")</script>
-      </Helmet>
-      <label className="search-bar__input-label" for={label}>
+      <label className="search-bar__input-label" htmlFor={name}>
         {label}
       </label>
       <input
@@ -35,8 +44,9 @@ const Input = ({
         value={value}
         onChange={handleChange}
         className={(className, "search-bar__input-input")}
-        data-iata={dataIata}
+        // data-iata={dataIata}
         id={id}
+        ref={dataI}
       />
     </div>
   );
