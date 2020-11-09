@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Helmet } from "react-helmet";
-import airportAutcomopleteJs from "airport-autocomplete-js";
+
 import "./Input.css";
 
 const Input = ({
@@ -9,27 +8,30 @@ const Input = ({
   type,
   handleFieldChange,
   className,
-  dataIata,
   id,
+  placeholder,
+  registerRef,
 }) => {
   const [value, setValue] = useState("");
   const dataI = useRef(null);
+
+  useEffect(() => {
+    if (registerRef) {
+      registerRef(name, dataI);
+    }
+  }, [value]);
 
   const handleChange = (e) => {
     setValue(e.target.value);
 
     if (handleFieldChange) {
-      handleFieldChange(e.target.name, e.target.value, dataI);
+      handleFieldChange(e.target.name, e.target.value);
     }
   };
 
   return (
     <div className="search-bar__input-container-small">
-      <Helmet>
-        <script>AirportInput("autocomplete-airport-1")</script>
-        <script>AirportInput("autocomplete-airport-2")</script>
-      </Helmet>
-      <label className="search-bar__input-label" for={label}>
+      <label className="search-bar__input-label" htmlFor={name}>
         {label}
       </label>
       <input
@@ -38,7 +40,7 @@ const Input = ({
         value={value}
         onChange={handleChange}
         className={(className, "search-bar__input-input")}
-        data-iata={dataIata}
+        placeholder={placeholder}
         id={id}
         ref={dataI}
       />
