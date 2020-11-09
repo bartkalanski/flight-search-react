@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-
-
 import "./Input.css";
 
 const Input = ({
@@ -10,26 +8,24 @@ const Input = ({
   handleFieldChange,
   className,
   id,
-
-  registerRef
+  placeholder,
+  registerRef,
 }) => {
   const [value, setValue] = useState("");
   const dataI = useRef(null);
 
   useEffect(() => {
-    if(registerRef) {
-      registerRef(name, dataI);    
+    if (registerRef) {
+      registerRef(name, dataI);
     }
-  }, [])
+  }, [value])
 
   const handleChange = (e) => {
     setValue(e.target.value);
 
     if (handleFieldChange) {
-      handleFieldChange(
-        e.target.name, 
-        e.target.value
-      );
+
+      handleFieldChange(e.target.name, e.target.value);
     }
   };
 
@@ -44,7 +40,8 @@ const Input = ({
         value={value}
         onChange={handleChange}
         className={(className, "search-bar__input-input")}
-        // data-iata={dataIata}
+
+        placeholder={placeholder}
         id={id}
         ref={dataI}
       />

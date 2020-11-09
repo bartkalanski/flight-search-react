@@ -3,7 +3,7 @@ import skyscannerDate from "../Utilities/skyscannerDate";
 import "./flightitem.css";
 
 const FlightItem = ({ results, date, arrival, departure, outbound }) => {
-  if (results.Quotes !== undefined) {
+  if (results) {
     // User submitted the form
     return (
       <div className="ui segment results__container">
