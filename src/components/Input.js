@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-
 import "./Input.css";
 
 const Input = ({
@@ -19,12 +18,13 @@ const Input = ({
     if (registerRef) {
       registerRef(name, dataI);
     }
-  }, [value]);
+  }, [value])
 
   const handleChange = (e) => {
     setValue(e.target.value);
 
     if (handleFieldChange) {
+
       handleFieldChange(e.target.name, e.target.value);
     }
   };
@@ -40,6 +40,7 @@ const Input = ({
         value={value}
         onChange={handleChange}
         className={(className, "search-bar__input-input")}
+
         placeholder={placeholder}
         id={id}
         ref={dataI}

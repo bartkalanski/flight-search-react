@@ -9,17 +9,18 @@ const SearchBar = ({ onSubmit }) => {
   const [formValues, setFormValues] = useState({});
 
   const [inputRefs, setInputRefs] = useState({});
+  
+  const registerRef = (name, ref) => {
+    setInputRefs({
+      ...inputRefs,
+      [name]: ref,
+    });
+  };
 
   const handleFormValuesChange = (name, value) => {
     setFormValues({
       ...formValues,
       [name]: value,
-    });
-  };
-  const registerRef = (name, ref) => {
-    setInputRefs({
-      ...inputRefs,
-      [name]: ref,
     });
   };
 
@@ -63,6 +64,7 @@ const SearchBar = ({ onSubmit }) => {
               className="From"
               placeholder=""
               id="autocomplete-airport-1"
+
               registerRef={registerRef}
             />
 
