@@ -9,4 +9,9 @@ describe("SearchBar", () => {
   it("should render without throwing an error", () => {
     expect(shallow(<SearchBar />)).not.toBeNull();
   });
+  it("should have a button", () => {
+    const wrapper = shallow(<SearchBar />);
+    const button = wrapper.find(".search-bar__btn");
+    expect(button).toBeDefined();
+  });
 });
