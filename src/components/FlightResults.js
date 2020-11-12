@@ -7,6 +7,7 @@ import "./FlightItem/flightitem.css";
 const FlightResults = ({ results }) => {
   if (results !== undefined) {
     // Check whether form has been submitted
+    console.log(results)
 
     if (results.Quotes !== undefined) {
       // User submitted form and API request has been successful
