@@ -11,9 +11,6 @@ describe("App", () => {
   it("should render without throwing an error", () => {
     expect(wrapper).not.toBeNull();
   });
-  /*it("", () => {
-    console.log(wrapper.debug());
-  });*/
   it("should render Logo component", () => {
     const logo = wrapper.find("Logo");
     expect(logo).toHaveLength(1);

@@ -27,7 +27,6 @@ describe("FlightResults", () => {
   });
   it("should render IATA error message", () => {
     const wrapper = shallow(<FlightResults results={{}} />);
-    console.log(wrapper.debug());
   });
   it("should render FlightItem if results available", () => {
     const wrapper = shallow(

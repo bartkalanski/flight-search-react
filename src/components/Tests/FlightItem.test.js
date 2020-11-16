@@ -34,7 +34,7 @@ describe("FlightItem", () => {
         date="20/11/2020"
         arrival="AMS"
         departure="MAN"
-        outbound="inbound"
+        outbound="outbound"
       />
     );
     const arrivalAirport = wrapper.find(".results__flight-arrival-airport");
@@ -43,9 +43,9 @@ describe("FlightItem", () => {
     expect(departureAirport.length).toBe(1);
     const price = wrapper.find(".results__price");
     expect(price.length).toBe(1);
-    const date = wrapper.find(".results__header div");
+    const date = wrapper.find(".results__date");
     expect(date.length).toBe(1);
     const direct = wrapper.find(".results__flight-direct");
-    expect(direct.length).toBe(1);
+    expect(direct.text()).toBe("Not Direct");
   });
 });

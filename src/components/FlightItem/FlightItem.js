@@ -8,7 +8,7 @@ const FlightItem = ({ results, date, arrival, departure, outbound }) => {
     return (
       <div className="ui segment results__container">
         <div className="results__header">
-          {outbound} <div>{skyscannerDate(date)}</div>
+          {outbound} <div className="results__date">{skyscannerDate(date)}</div>
         </div>
 
         <div className="results__flight-container">
