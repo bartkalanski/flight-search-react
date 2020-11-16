@@ -1,6 +1,6 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "../ErrorMessage";
 
 describe("ErrorMessage", () => {
   it("should render without throwing an error", () => {

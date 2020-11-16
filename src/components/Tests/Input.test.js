@@ -1,6 +1,6 @@
 import React from "react";
 import Enzyme, { shallow, mount } from "enzyme";
-import Input from "./Input";
+import Input from "../Input";
 
 describe("Item", () => {
   it("should fire handleFormValuesChange", () => {

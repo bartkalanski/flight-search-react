@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, { shallow, mount } from "enzyme";
-import FlightResults from "./FlightResults";
-import FlightItem from "./FlightItem/FlightItem";
+import FlightResults from "../FlightResults";
+import FlightItem from "../FlightItem/FlightItem";
 
 let wrapper;
 beforeEach(() => {
@@ -20,12 +20,15 @@ describe("FlightResults", () => {
     const item = <FlightItem />;
     expect(wrapper.containsMatchingElement(item)).toBe(false);
   });
-  it("should render error message if no flights available", () => {
+  it("should render no flights available error message if no flights available", () => {
     const wrap = mount(<FlightResults results={{ Quotes: [] }} />);
     const errorMessage = wrap.find(".error__container");
     expect(errorMessage.length).toBe(1);
   });
-
+  it("should render IATA error message", () => {
+    const wrapper = shallow(<FlightResults results={{}} />);
+    console.log(wrapper.debug());
+  });
   it("should render FlightItem if results available", () => {
     const wrapper = shallow(
       <FlightResults

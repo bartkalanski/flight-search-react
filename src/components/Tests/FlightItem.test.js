@@ -1,6 +1,6 @@
 import React from "react";
 import Enzyme, { shallow, mount } from "enzyme";
-import FlightItem from "./FlightItem";
+import FlightItem from "../FlightItem/FlightItem";
 
 describe("FlightItem", () => {
   it("should render without throwing an error", () => {

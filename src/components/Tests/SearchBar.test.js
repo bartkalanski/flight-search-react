@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, { shallow, mount } from "enzyme";
-import SearchBar from "./SearchBar";
-import Input from "./Input";
+import SearchBar from "../SearchBar";
+import Input from "../Input";
 
 describe("SearchBar", () => {
   it("should render without throwing an error", () => {
