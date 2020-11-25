@@ -21,7 +21,7 @@ const FlightItem = ({ results, date, arrival, departure, outbound }) => {
           </div>
           <div className="results__flight-second">
             <div className="results__flight-direct">
-              {results.Quotes[0].Direct === true ? "Direct" : "Not Direct"}
+              {results.Quotes[0].Direct === "Direct" ? "Direct" : "Not Direct"}
             </div>
             <i className="plane icon"></i>
           </div>

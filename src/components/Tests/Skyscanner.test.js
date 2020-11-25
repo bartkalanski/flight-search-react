@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import Enzyme from "enzyme";
 import Skyscanner from "../API/Skyscanner";
 import mockAxios from "axios";
 

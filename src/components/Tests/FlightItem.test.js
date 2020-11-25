@@ -48,4 +48,28 @@ describe("FlightItem", () => {
     const direct = wrapper.find(".results__flight-direct");
     expect(direct.text()).toBe("Not Direct");
   });
+  it("should display results data to the user", () => {
+    const wrapper = shallow(
+      <FlightItem
+        results={{
+          Carriers: [
+            {
+              Name: "KLM",
+            },
+          ],
+          Quotes: [
+            {
+              Direct: "Direct",
+            },
+          ],
+        }}
+        date="20/11/2020"
+        arrival="AMS"
+        departure="MAN"
+        outbound="outbound"
+      />
+    );
+    const direct = wrapper.find(".results__flight-direct");
+    expect(direct.text()).toBe("Direct");
+  });
 });
