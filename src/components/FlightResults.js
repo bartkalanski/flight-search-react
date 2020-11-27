@@ -1,13 +1,10 @@
 import React from "react";
 import FlightItem from "./FlightItem/FlightItem";
-import flightDirection from "./Utilities/FlightDirection";
 import ErrorMessage from "./ErrorMessage";
 import "./FlightItem/flightitem.css";
 
 const FlightResults = ({ results }) => {
-  if (results !== undefined) {
-    // Check whether form has been submitted
-
+  if (results) {
     if (results.Quotes !== undefined) {
       // User submitted form and API request has been successful
 
@@ -45,14 +42,7 @@ const FlightResults = ({ results }) => {
       return <React.Fragment></React.Fragment>;
     }
   } else {
-    // User input wrong airport code
-    return (
-      <ErrorMessage
-        errorTop="We're sorry, our input only accepts IATA airport codes"
-        errorBottom="Please enter IATA airport code e.g JFK"
-      />
-    );
+    return <React.Fragment />;
   }
 };
 export default FlightResults;
-/* .results.Quotes[0] if(props.results.length > 0){*/

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import date from "./Utilities/date";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 import FlightResults from "./FlightResults";
 import Skyscanner from "./API/Skyscanner";
-import date from "./Utilities/date";
 import beach from "../images/beach-2.jpg";
 import airportAutcomopleteJs from "airport-autocomplete-js";
 import "./App.css";

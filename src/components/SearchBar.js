@@ -41,6 +41,7 @@ const SearchBar = ({ onSubmit }) => {
         from: getRefValue(inputRefs.from) || formValues.from,
         to: getRefValue(inputRefs.to) || formValues.to,
       };
+
       onSubmit(valuesToSend);
     }
   };
