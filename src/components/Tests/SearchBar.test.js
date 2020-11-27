@@ -31,4 +31,5 @@ describe("SearchBar", () => {
     const Input = wrapper.find("Input");
     expect(Input).toHaveLength(4);
   });
+  
 });
