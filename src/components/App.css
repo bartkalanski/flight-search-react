@@ -57,4 +57,9 @@ body {
     background: #111236;
   }
 }
+@media screen and (min-width: 2560px) {
+  .app__flights {
+    margin-left: 11.5vw;
+  }
+}
 

@@ -122,3 +122,12 @@
   }
   
 }
+@media only screen and (min-width: 2560px) {
+  .results__container{
+    width: 35%;
+  }
+  .results__flight-container {
+    margin-left: 11vw;
+  }
+  
+}
