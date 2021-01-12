@@ -102,10 +102,18 @@
   }
 }
 @media screen and (min-width: 1500px) {
-    .search-bar__container {
-      background-image: url("../images/beach-4k.jpg");
-      background-position: stretch;
-    }
-    .autocomplete-results {
-        width: 8%;
-      }}
+  .search-bar__container {
+    background-image: url("../images/beach-4k.jpg");
+    background-position: stretch;
+  }
+  .autocomplete-results {
+    width: 8%;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .search-bar__form {
+    width: 75%;
+    padding: 2rem;
+
+  }
+}
