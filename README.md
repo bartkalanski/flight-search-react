@@ -13,7 +13,7 @@ This was my first React Hooks project which I built from scratch. I wanted to re
 - Enzyme
 
 
-![project screenshot](/src/imgs/skyscanner-screenshot.png)
+![project screenshot](/src/Utilities/skyscanner-screenshot.png)
 
 
 Here is a link to the [live site](https://barts-skyscanner.netlify.app/).
